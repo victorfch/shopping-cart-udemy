@@ -1,43 +1,23 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import ProductList from './components/ProductList'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const initialProducts = [
+    {name: "tomate", price: 1500, img: "./assets/tomate.jpg"},
+    {name: "arbejas", price: 2500, img: "./assets/arbejas.jpg"},
+    {name: "lechuga", price: 500, img: "./assets/lechuga.jpg"}
+  ]
+
+  const [products, setProducts] = useState(initialProducts)
+
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div>
+      <h1>Products</h1>
+      <hr />
+      <ProductList
+        products={products}
+        addToCart={() => console.log("add to shopping cart")}/>
     </div>
   )
 }
