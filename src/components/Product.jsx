@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 const styles = {
     product: {
         border: "solid 1px #eee",
@@ -11,12 +13,15 @@ const styles = {
     }
 }
 
-function Product({product}) {
+function Product({product, addToCart}) {
     return (
         <div style={styles.product}>
             <img style={styles.img} src={product.img} alt={product.name} />
             <h2>{product.name}</h2>
             <div>{product.price}</div>
+            <Button onClick={() => addToCart(product)}>
+                Add
+            </Button>
         </div>
     )
 

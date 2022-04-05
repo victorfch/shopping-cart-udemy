@@ -8,10 +8,10 @@ const styles = {
     }
 }
 
-function ProductList({products}) {
+function ProductList({products, addToCart}) {
     return (
         <div style={styles.products}>
-            {products.map(product => <Product product={product} key={product.name} />)}
+            {products.map(product => <Product product={product} addToCart={addToCart} key={product.name} />)}
         </div>
     )
 }

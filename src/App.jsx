@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import Layout from './components/Layout'
 import ProductList from './components/ProductList'
+import Navbar from './components/Navbar'
 
 function App() {
   const initialProducts = [
@@ -10,14 +12,21 @@ function App() {
 
   const [products, setProducts] = useState(initialProducts)
 
+  const handleAddToCart = (product) => {
+    console.log(product)
+    console.log("add to shopping cart")
+  }
 
   return (
     <div>
-      <h1>Products</h1>
-      <hr />
-      <ProductList
-        products={products}
-        addToCart={() => console.log("add to shopping cart")}/>
+      <Navbar />
+      <Layout>  
+        <h1>Products</h1>
+        <hr />
+        <ProductList
+          products={products}
+          addToCart={handleAddToCart} />
+      </Layout>
     </div>
   )
 }
