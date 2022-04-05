@@ -1,3 +1,5 @@
+import ShoppingCart from "./ShoppingCart"
+
 const styles = {
     navbar: {
         display: "flex",
@@ -16,7 +18,7 @@ function Navbar() {
     return (
         <nav style={styles.navbar}>
             <p>Logo</p>
-            <p>Carro</p>
+            <ShoppingCart />
         </nav>
     )
 }
