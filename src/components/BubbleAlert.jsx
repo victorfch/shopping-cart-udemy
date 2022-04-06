@@ -13,10 +13,11 @@ const styles = {
 
 }
 
-function BubbleAlert() {
+function BubbleAlert({value}) {
+
     return (
         <span style={styles.bubble}>
-            3
+            {value > 9 ? "9+" : value}
         </span>
     )
 }

@@ -11,15 +11,32 @@ function App() {
   ]
 
   const [products, setProducts] = useState(initialProducts)
+  const [shoppingCart, setShoppingCart] = useState([])
 
   const handleAddToCart = (product) => {
-    console.log(product)
-    console.log("add to shopping cart")
+    const productExist = shoppingCart.find(ele => ele.name === product.name)
+
+    if (productExist) {
+      shoppingCart.forEach(cart => {
+        if (cart.name === product.name) {
+          cart.quantity++
+        }
+      })
+      setShoppingCart([...shoppingCart])
+      return
+    }
+
+    setShoppingCart(oldValue => [
+      ...oldValue,
+      {...product, quantity: 1}
+    ])
+
+
   }
 
   return (
     <div>
-      <Navbar />
+      <Navbar shoppingCart={shoppingCart} />
       <Layout>  
         <h1>Products</h1>
         <hr />

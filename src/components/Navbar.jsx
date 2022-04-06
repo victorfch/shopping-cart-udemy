@@ -14,11 +14,11 @@ const styles = {
 
 }
 
-function Navbar() {
+function Navbar({shoppingCart}) {
     return (
         <nav style={styles.navbar}>
             <p>Logo</p>
-            <ShoppingCart />
+            <ShoppingCart shoppingCart={shoppingCart} />
         </nav>
     )
 }
